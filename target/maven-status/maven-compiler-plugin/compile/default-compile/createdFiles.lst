@@ -1,0 +1,15 @@
+com\boots\controller\RegistrationController.class
+com\boots\repository\RoleRepository.class
+com\boots\service\ITodoService.class
+com\boots\entity\Todo.class
+com\boots\config\WebSecurityConfig.class
+com\boots\repository\TodoRepository.class
+com\boots\repository\UserRepository.class
+com\boots\entity\Role.class
+com\boots\entity\User.class
+com\boots\config\MvcConfig.class
+com\boots\Application.class
+com\boots\service\TodoService.class
+com\boots\controller\TodoController.class
+com\boots\service\UserService.class
+com\boots\controller\AdminController.class

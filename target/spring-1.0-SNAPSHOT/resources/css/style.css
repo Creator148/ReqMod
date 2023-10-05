@@ -1,0 +1,275 @@
+.table {
+    width: 100%;
+    border: none;
+    margin-bottom: 20px;
+    border-collapse: separate;
+}
+.table thead th {
+    font-weight: bold;
+    text-align: left;
+    border: none;
+    padding: 10px 15px;
+    background: #EDEDED;
+    font-size: 14px;
+    border-top: 1px solid #ddd;
+}
+.table tr th:first-child, .table tr td:first-child {
+    border-left: 1px solid #ddd;
+}
+.table tr th:last-child, .table tr td:last-child {
+    border-right: 1px solid #ddd;
+}
+.table thead tr th:first-child {
+    border-radius: 20px 0 0 0;
+    background: #F8F8F8;
+}
+.table thead tr th:last-child {
+    border-radius: 0 20px 0 0;
+    background: #F8F8F8;
+}
+.table tbody td {
+    text-align: left;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    vertical-align: top;
+    background: #F8F8F8;
+}
+.table tbody tr:nth-child(even) {
+    background: #F8F8F8;
+}
+.table tbody tr:last-child td{
+    border-bottom: 1px solid #ddd;
+}
+.table tbody tr:last-child td:first-child {
+    border-radius: 0 0 0 20px;
+    background: #F8F8F8;
+}
+.table tbody tr:last-child td:last-child {
+    border-radius: 0 0 20px 0;
+    background: #F8F8F8;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+.column {
+    color:firebrick;
+}
+
+.text-center{
+    color: #cb610b;
+    font-weight: initial;
+    line-height: 2em;
+}
+
+.login-page {
+    width: 360px;
+    padding: 8% 0 0;
+    margin: auto;
+}
+.form-group{
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+
+}
+.registration-page{
+    width: 360px;
+    padding: 8% 0 0;
+    margin: auto;
+}
+.form {
+    position: relative;
+    z-index: 1;
+    background: #FFFFFF;
+    max-width: 360px;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.form input {
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+.form button {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #ea6f08;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+}
+.form button:hover,.form button:active,.form button:focus {
+    background: #cb610b;
+}
+.form .message {
+    text-decoration: none;
+    margin: 15px 0 0;
+    color: #b3b3b3;
+    font-size: 12px;
+}
+.form .message a {
+    color: #ea6f08;
+    text-decoration: none;
+}
+.form .register-form {
+    display: none;
+}
+.container {
+    position: relative;
+    z-index: 1;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.error-message {
+    display: none;
+    position: absolute;
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 999;
+}
+
+.logout {
+    background: #FFFFFF;
+    display: inline-flex;
+    padding: 10px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    border-radius: 8px;
+
+}
+.nav-link{
+    text-decoration: none;
+    color:black;
+}
+
+
+
+input:invalid ~ .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+input:valid ~ .tooltip {
+    transition: opacity 0.3s, visibility 0s 0.3s;
+}
+.container .info h1 {
+    margin: 0 0 15px;
+    padding: 0;
+    font-size: 36px;
+    font-weight: 300;
+    color: #1a1a1a;
+}
+.container .info span {
+    color: #4d4d4d;
+    font-size: 12px;
+}
+.container .info span a {
+    color: #000000;
+    text-decoration: none;
+}
+.container .info span .fa {
+    color: #EF3B3A;
+}
+body {
+    background: #2a2a26; /* fallback for old browsers */
+    background: rgb(234, 111, 8);
+    background: linear-gradient(90deg, rgb(42, 42, 38) 0%, rgb(42, 42, 38) 50%);
+    font-family: "Roboto", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.formkek{
+    background: #FFFFFF;
+    display: inline-flex;
+    padding: 10px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px;
+
+
+}
+.up {
+    background-color: rgb(234, 111, 8);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding:20px;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+img {
+    max-width: 100%;
+}
+.center{
+    padding-left: calc(50% - 1080px / 2);
+    padding-right: calc(50% - 1080px / 2);
+}
+a {
+    text-decoration: none;
+}
+.header {
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 40px;
+}
+.logo{
+    background-color: white;
+    display: inline-flex;
+    padding: 10px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px;
+}
+.col-12{
+    padding-left: 40px;
+    width: 800px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    margin: 6px;
+}
+.form-control{
+    padding-top:8px;
+    padding-bottom: 8px;
+
+}
+.box{
+    margin: 5px;
+
+    padding-left: 40px;
+    padding-top:8px;
+    padding-bottom: 8px;
+
+}
