@@ -1,2 +1,4 @@
-package com.boots.entity;public class Project {
+package com.boots.entity;
+
+public class Project {
 }

@@ -9,7 +9,7 @@ import java.util.Collection;
 import java.util.Set;
 
 @Entity
-@Table(name = "t_user")
+@Table(name = "users")
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,13 +18,44 @@ public class User implements UserDetails {
     private String username;
     @Size(min=2, message = "Не меньше 5 знаков")
     private String password;
+    @Size(min=2, message = "Не меньше 5 знаков")
+    private String email;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @Size(min=2, message = "Не меньше 5 знаков")
+
+    private String firstName;
+    @Size(min=2, message = "Не меньше 5 знаков")
+
+    private String lastName;
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
     @Transient
     private String passwordConfirm;
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Role> roles;
-
-    @OneToMany(fetch = FetchType.EAGER)
-    private Set<Todo> todos;
 
     public User() {
     }

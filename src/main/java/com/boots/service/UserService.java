@@ -55,18 +55,16 @@ public class UserService implements UserDetailsService {
             return false;
         }
 
-        user.setRoles(Collections.singleton(new Role(1L, "ROLE_USER")));
+        user.setRoles(Collections.singleton(new Role(1L, "USER")));
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         userRepository.save(user);
         return true;
     }
 
-    public boolean deleteUser(Long userId) {
+    public void deleteUser(Long userId) {
         if (userRepository.findById(userId).isPresent()) {
             userRepository.deleteById(userId);
-            return true;
         }
-        return false;
     }
 
     public List<User> usergtList(Long idMin) {

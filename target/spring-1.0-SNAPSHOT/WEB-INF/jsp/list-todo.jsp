@@ -48,19 +48,27 @@
             </tr>
             </thead>
             <tbody>
-            <!--   for (Todo todo: todos) {  -->
             <c:forEach var="todo" items="${listTodo}">
                 <tr>
                     <td><c:out value="${todo.title}" /></td>
-                    <td><c:out value="${todo.description}" /></td>
                     <td>
-                        <script>
-                            function formatDateTime(dateTimeStr) {
-                                const options = { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' };
-                                return new Date(dateTimeStr).toLocaleString(undefined, options);
-                            }
-                            document.write(formatDateTime("${todo.targetDate}"));
-                        </script>
+                        <textarea class="out-desc" readonly>  <c:out value="${todo.description}" /></textarea>
+                    </td>
+                    <td>
+                        <c:choose>
+                            <c:when test="${empty todo.targetDate}">
+                                Без даты
+                            </c:when>
+                            <c:otherwise>
+                                <script>
+                                    function formatDateTime(dateTimeStr) {
+                                        const options = { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' };
+                                        return new Date(dateTimeStr).toLocaleString(undefined, options);
+                                    }
+                                    document.write(formatDateTime("${todo.targetDate}"));
+                                </script>
+                            </c:otherwise>
+                        </c:choose>
                     </td>
                     <td>
                         <c:choose>
@@ -72,16 +80,12 @@
                             </c:otherwise>
                         </c:choose>
                     </td>
-
-                    <td><a href="update-todo?id=<c:out value='${todo.id}' />" style="text-decoration: none;font-size:30px;color: #2a2a26">&#9998</a>
+                    <td>
+                    <a href="update-todo?id=<c:out value='${todo.id}' />" style="text-decoration: none;font-size:30px;color: #2a2a26">&#9998</a>
                         &nbsp;&nbsp;&nbsp;&nbsp; <a
                                 href="delete?id=<c:out value='${todo.id}' />" style="text-decoration: none;font-size:30px;color: #2a2a26">&#128465</a></td>
-
-                    <!--  <td><button (click)="updateTodo(todo.id)" class="btn btn-success">Update</button>
-                              <button (click)="deleteTodo(todo.id)" class="btn btn-warning">Delete</button></td> -->
                 </tr>
             </c:forEach>
-            <!-- } -->
             </tbody>
 
         </table>

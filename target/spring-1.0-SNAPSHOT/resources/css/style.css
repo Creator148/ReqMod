@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
 .table {
     width: 100%;
     border: none;
@@ -50,8 +52,6 @@
     background: #F8F8F8;
 }
 
-@import url(https://fonts.googleapis.com/css?family=Roboto:300);
-
 .column {
     color:firebrick;
 }
@@ -67,22 +67,18 @@
     padding: 8% 0 0;
     margin: auto;
 }
-.form-group{
-    font-family: "Roboto", sans-serif;
-    outline: 0;
-    background: #f2f2f2;
-    width: 100%;
-    border: 0;
-    margin: 0 0 15px;
-    padding: 15px;
-    box-sizing: border-box;
-    font-size: 14px;
 
-}
 .registration-page{
     width: 360px;
     padding: 8% 0 0;
     margin: auto;
+}
+.box {
+    padding-top:8px;
+    padding-bottom: 8px;
+}
+input {
+    font-family: "Roboto", sans-serif;
 }
 .form {
     position: relative;
@@ -253,23 +249,164 @@ a {
     gap: 10px;
     border-radius: 8px;
 }
-.col-12{
-    padding-left: 40px;
-    width: 800px;
-    padding-top: 30px;
-    padding-bottom: 20px;
-    margin: 6px;
+.form-control-title{
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #f2f2f2;
+    /*width: 15%;*/
+    border: 0;
+    margin: 0 0 15px 5px;
+    box-sizing: border-box;
+    font-size: 15px;
+    border-radius: 5px;
+    width: 270px;
+    border: none;
 }
-.form-control{
-    padding-top:8px;
-    padding-bottom: 8px;
+.form-control-input-title{
+    margin: 5px;
+    border: none;
+    width: 256px;
+    background: #f2f2f2;
+    outline: none;
 
 }
+.form-control2{
+    padding-top:8px;
+    padding-bottom: 8px;
+}
+.form-control3{
+    padding-top:8px;
+    padding-bottom: 8px;
+    margin: 5px;
+    padding-top:8px;
+    padding-bottom: 8px;
+}
+.form-control-desc{
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #f2f2f2;
+    /*width: 15%;*/
+    border: 0;
+    margin: 0 0 15px 5px;
+    box-sizing: border-box;
+    font-size: 15px;
+    border-radius: 5px;
+    width: 800px;
+    border: none;
+}
+.out-desc{
+
+    font-family: "Roboto", sans-serif;
+    outline: none;
+    border:none;
+    resize: vertical;
+    width: 100%;
+    height: 50px;
+}
+.form-control-input-desc{
+    font-family: "Roboto", sans-serif;
+    margin: 0 0 15px 5px;
+    width: 500px;
+    height: 100px;
+    border-radius: 5px;
+    outline: none;
+}
+.form-control-data{
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #f2f2f2;
+    /*width: 15%;*/
+    border: 0;
+    margin: 0 0 15px 5px;
+    box-sizing: border-box;
+    font-size: 15px;
+    border-radius: 5px;
+    width: 158px;
+    border: none;
+}
+
+.form-control-input-data{
+    margin: 5px;
+    padding-top:2px;
+    padding-bottom: 2px;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    background: #f2f2f2;
+    outline: none;
+}
+.form-group{
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #f2f2f2;
+    /*width: 15%;*/
+    border: 0;
+    margin: 0 0 15px;
+    padding: 5px;
+    box-sizing: border-box;
+    font-size: 15px;
+    border-radius: 12px;
+    width: 212px;
+}
+
 .box{
     margin: 5px;
-
-    padding-left: 40px;
     padding-top:8px;
     padding-bottom: 8px;
 
+}
+
+.for-add {
+    padding: 16px;
+}
+
+.button-3 {
+    appearance: none;
+    background-color: #2ea44f;
+    border: 1px solid rgba(27, 31, 35, .15);
+    border-radius: 6px;
+    box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    padding: 6px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.button-3:focus:not(:focus-visible):not(.focus-visible) {
+    box-shadow: none;
+    outline: none;
+}
+
+.button-3:hover {
+    background-color: #2c974b;
+}
+
+.button-3:focus {
+    box-shadow: rgba(46, 164, 79, .4) 0 0 0 3px;
+    outline: none;
+}
+
+.button-3:disabled {
+    background-color: #94d3a2;
+    border-color: rgba(27, 31, 35, .1);
+    color: rgba(255, 255, 255, .8);
+    cursor: default;
+}
+
+.button-3:active {
+    background-color: #298e46;
+    box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
 }
