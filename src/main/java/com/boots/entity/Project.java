@@ -15,8 +15,9 @@ public class Project {
     private String name;
     private Boolean active;
 
-    public Project(Long status_id, String name, Boolean active) {
+    public Project(Status status, String name, Boolean active) {
         super();
+        this.status = status;
         this.name = name;
         this.active = active;
     }

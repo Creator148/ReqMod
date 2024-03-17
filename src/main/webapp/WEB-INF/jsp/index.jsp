@@ -35,7 +35,7 @@
       <p class="message">Не зарегистрированы? <a href="/registration">Зарегистрироваться </a></p>
       </sec:authorize>
       <sec:authorize access="isAuthenticated()">
-        <h4><a href="/list-todo">Главная</a></h4>
+        <h4><a href="/list-projects">Главная</a></h4>
         <h4><a href="/logout">Выйти</a></h4>
       </sec:authorize>
     </form>

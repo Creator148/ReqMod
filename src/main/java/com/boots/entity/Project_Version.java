@@ -26,6 +26,14 @@ public class Project_Version {
         this.active = active;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public Project_Version() {
         super();
     }

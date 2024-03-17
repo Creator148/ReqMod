@@ -25,6 +25,4 @@ public class Version_User {
         this.project_version = projectVersion;
         this.user = user;
     }
-
-
 }
