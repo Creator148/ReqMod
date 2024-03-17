@@ -11,10 +11,19 @@ public class Role implements GrantedAuthority {
     @Id
     private Long id;
     private String name;
+    private String priority;
     @Transient
     @ManyToMany(mappedBy = "roles")
     private Set<User> users;
     public Role() {
+    }
+
+    public String getPriority() {
+        return priority;
+    }
+
+    public void setPriority(String priority) {
+        this.priority = priority;
     }
 
     public Role(Long id) {

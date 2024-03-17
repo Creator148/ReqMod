@@ -7,50 +7,149 @@
     <title>Проекты</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script th:src="{${contextPath}/resources/js/main.js}"></script>
-    <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/style.css">
+    <script src="<c:url value="/js/generateRandomColor.js"/>"></script>
+    <link rel="stylesheet" href="${contextPath}/resources/css/style.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<header class="header">
-    <div class = "header-container">
-        <a href="<%=request.getContextPath()%>/" class="reqmod-header">ReqMod</a>
+<div class="sidebar close">
+    <div class="logo-details">
+        <i ></i>
+        <span class="logo_name">ReqMod</span>
     </div>
-    <div class="logout">
-        <a href="<%=request.getContextPath()%>/logout"
-           class="nav-link">Logout<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
-            <path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 192 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l210.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128zM160 96c17.7 0 32-14.3 32-32s-14.3-32-32-32L96 32C43 32 0 75 0 128L0 384c0 53 43 96 96 96l64 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32l0-256c0-17.7 14.3-32 32-32l64 0z"></path>
-        </svg></a>
-    </div>
-</header>
-<div class="container">
-    <h2>Список проектов</h2>
-    <table>
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>Название проекта</th>
-            <th>Статус</th>
-            <th>Активный</th>
-        </tr>
-        </thead>
-        <tbody>
-        <c:forEach var="project" items="${projects}">
-            <tr>
-                <td>${project.id}</td>
-                <td>${project.name}</td>
-                <td>${project.status.name}</td>
-                <td>${project.active}</td>
-            </tr>
-        </c:forEach>
-        </tbody>
-    </table>
-    <h2>Создать новый проект</h2>
-    <form action="<%=request.getContextPath()%>/create-project" method="post">
-        <label for="name">Название проекта:</label>
-        <input type="text" id="name" name="name" required>
-        <button type="submit">Создать проект</button>
-    </form>
+    <ul class="nav-links">
+        <li>
+            <a href="#">
+                <i class='bx bx-grid-alt' ></i>
+                <span class="link_name">Главная</span>
+            </a>
+            <ul class="sub-menu blank">
+                <li><a class="link_name" href="#">Category</a></li>
+            </ul>
+        </li>
+        <li>
+            <div class="iocn-link">
+                <a href="#">
+                    <i class='bx bx-collection' ></i>
+                    <span class="link_name">Проекты</span>
+                </a>
+                <i class='bx bxs-chevron-down arrow' ></i>
+            </div>
+            <ul class="sub-menu">
+                <li><a class="link_name" href="#">Проекты</a></li>
+                <c:forEach var="project" items="${projects}">
+                    <li><a href="#">${project.name}</a></li>
+                </c:forEach>
+            </ul>
+        </li>
+        <li>
+            <a href="#">
+                <i class='bx bx-grid-alt' ></i>
+                <span class="link_name">Требования</span>
+            </a>
+            <ul class="sub-menu blank">
+                <li><a class="link_name" href="#">Category</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="/admin">
+                <i class='bx bx-cog' ></i>
+                <span class="link_name">Настройки</span>
+            </a>
+            <ul class="sub-menu blank">
+                <li><a class="link_name" href="/admin">Настройки</a></li>
+            </ul>
+        </li>
+        <li>
+            <div class="profile-details">
+                <div class="profile-content">
+
+                </div>
+                <div class="name-job">
+                    <div class="profile_name">${userInfo.username}</div>
+                    <div class="role">
+                        <c:forEach items="${userInfo.roles}" var="role">
+                            <c:if test="${role.priority eq 'MAIN'}">
+                                ${role.name}
+                            </c:if>
+                        </c:forEach>
+                    </div>
+                </div>
+                <a href="/logout">
+                    <i class='bx bx-log-out'></i>
+                </a>
+            </div>
+        </li>
+    </ul>
 </div>
+<section class="home-section">
+    <div class="home-content">
+        <i class='bx bx-menu' ></i>
+        <span class="text">Проекты</span>
+    </div>
+    <div class="masonry-layout">
+        <c:forEach var="project" items="${projects}">
+            <div class="masonry-layout__panel randomColorPanel">
+                <div class="masonry-layout__panel-name">${project.name}</div>
+                <div class="masonry-layout__panel-status">${project.status.name}</div>
+                <div class="masonry-layout__panel-active">
+                    <c:choose>
+                        <c:when test="${project.active}">
+                            Активный
+                        </c:when>
+                        <c:otherwise>
+                            Неактивный
+                        </c:otherwise>
+                    </c:choose>
+                </div>
+            </div>
+        </c:forEach>
+
+        <form action="<%=request.getContextPath()%>/create-project" method="post" class="masonry-layout__panel randomColorPanel">
+            <label for="name" class="masonry-layout__panel-name">Новый проект</label>
+            <input class="text-field__input" type="text" id="name" name="name" required>
+            <button type="button" class="button">+</button>
+        </form>
+    </div>
+</section>
+<script>
+    let arrow = document.querySelectorAll(".arrow");
+    for (var i = 0; i < arrow.length; i++) {
+        arrow[i].addEventListener("click", (e)=>{
+            let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
+            arrowParent.classList.toggle("showMenu");
+        });
+    }
+    let sidebar = document.querySelector(".sidebar");
+    let sidebarBtn = document.querySelector(".bx-menu");
+    console.log(sidebarBtn);
+    sidebarBtn.addEventListener("click", ()=>{
+        sidebar.classList.toggle("close");
+    });
+</script>
+<script>
+    var panels = document.querySelectorAll('.randomColorPanel');
+    panels.forEach(function(panel) {
+        panel.style.backgroundColor = generateRandomColor();
+    });
+
+    function generateRandomColor() {
+        const minChannelValue = 50; // минимальное значение для канала цвета (0-255)
+        const maxChannelValue = 205; // максимальное значение для канала цвета (0-255)
+        const minAlpha = 0.5; // минимальная прозрачность (0-1)
+        const maxAlpha = 1; // максимальная прозрачность (0-1)
+
+        let color = 'rgba(';
+        for (let i = 0; i < 3; i++) {
+            color += Math.floor(Math.random() * (maxChannelValue - minChannelValue + 1) + minChannelValue) + ',';
+        }
+        const alpha = Math.random() * (maxAlpha - minAlpha) + minAlpha; // случайное значение для прозрачности
+        color += alpha.toFixed(2) + ')';
+        return color;
+    }
+</script>
 </body>
 </html>
 
