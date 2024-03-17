@@ -46,5 +46,14 @@ public class ProjectService {
         Version_User versionUser = new Version_User(projectVersion, currentUser);
         versionUserRepository.save(versionUser);
     }
+    public Project getProjectById(Long projectId) {
+        return projectRepository.findById(projectId).orElse(null);
+    }
+
+    public List<Project_Version> getProjectVersionsByProject(Project project) {
+        return projectVersionRepository.findByProject(project);
+    }
+
+
 }
 

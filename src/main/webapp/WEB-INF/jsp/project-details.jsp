@@ -4,10 +4,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Проекты</title>
+    <title>Детали проекта</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="<c:url value="/js/generateRandomColor.js"/>"></script>
+    <script th:src="{${contextPath}/resources/js/main.js}"></script>
     <link rel="stylesheet" href="${contextPath}/resources/css/style.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -87,34 +87,34 @@
 <section class="home-section">
     <div class="home-content">
         <i class='bx bx-menu' ></i>
-        <span class="text">Проекты</span>
+        <span class="text">${project.name} (${project.status.name})</span>
     </div>
-    <div class="masonry-layout">
-        <c:forEach var="project" items="${projects}">
-            <a href="<%=request.getContextPath()%>/project-details/${project.id}" style="text-decoration: none">
-            <div class="masonry-layout__panel randomColorPanel" >
-                <div class="masonry-layout__panel-name">${project.name}</div>
-                <div class="masonry-layout__panel-status">${project.status.name}</div>
-                <div class="masonry-layout__panel-active">
-                    <c:choose>
-                        <c:when test="${project.active}">
-                            Активный
-                        </c:when>
-                        <c:otherwise>
-                            Неактивный
-                        </c:otherwise>
-                    </c:choose>
-                </div>
-            </div>
-            </a>
-        </c:forEach>
+    <div class="container">
+        <ul class="responsive-table">
+            <li class="table-header">
+                <div class="col col-1">Наименование версии</div>
+                <div class="col col-2">Статус</div>
+                <div class="col col-3">Активность</div>
+            </li>
+            <c:forEach var="projectVersion" items="${projectVersions}">
+            <li class="table-row">
+                    <div class="col col-1">${projectVersion.name}</div>
+                    <div class="col col-2">${projectVersion.status.name}</div>
+                    <div class="col col-3">
+                        <c:choose>
+                            <c:when test="${projectVersion.active}">
+                                Активная
+                            </c:when>
+                            <c:otherwise>
+                                Неактивная
+                            </c:otherwise>
+                        </c:choose>
+                    </div>
+            </li>
+            </c:forEach>
+        </ul>
+    </div>
 
-        <form action="<%=request.getContextPath()%>/create-project" method="post" class="masonry-layout__panel randomColorPanel">
-            <label for="name" class="masonry-layout__panel-name">Новый проект</label>
-            <input class="text-field__input" type="text" id="name" name="name" required>
-            <button type="button" class="button">+</button>
-        </form>
-    </div>
 </section>
 <script>
     let arrow = document.querySelectorAll(".arrow");
@@ -131,27 +131,5 @@
         sidebar.classList.toggle("close");
     });
 </script>
-<script>
-    var panels = document.querySelectorAll('.randomColorPanel');
-    panels.forEach(function(panel) {
-        panel.style.backgroundColor = generateRandomColor();
-    });
-
-    function generateRandomColor() {
-        const minChannelValue = 50; // минимальное значение для канала цвета (0-255)
-        const maxChannelValue = 205; // максимальное значение для канала цвета (0-255)
-        const minAlpha = 0.5; // минимальная прозрачность (0-1)
-        const maxAlpha = 1; // максимальная прозрачность (0-1)
-
-        let color = 'rgba(';
-        for (let i = 0; i < 3; i++) {
-            color += Math.floor(Math.random() * (maxChannelValue - minChannelValue + 1) + minChannelValue) + ',';
-        }
-        const alpha = Math.random() * (maxAlpha - minAlpha) + minAlpha; // случайное значение для прозрачности
-        color += alpha.toFixed(2) + ')';
-        return color;
-    }
-</script>
 </body>
 </html>
-

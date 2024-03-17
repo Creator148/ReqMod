@@ -32,6 +32,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .antMatchers("/registration").not().fullyAuthenticated()
                     .antMatchers("/admin/**").hasAuthority("ADMIN")
                     .antMatchers("/list-projects").hasAuthority("USER")
+                    .antMatchers("/project-details/{projectId}").hasAuthority("USER")
                     //Доступ разрешен всем пользователей
                     .antMatchers("/", "/resources/**").permitAll()
                 //Все остальные страницы требуют аутентификации
